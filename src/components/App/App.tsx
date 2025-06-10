@@ -53,8 +53,7 @@ useEffect(() => {
       {isLoading && <Loader />}
       {isError && <ErrorMessage />}
       {!isLoading && !isError && data && data.results.length > 0 && (<> 
-      <MovieGrid movies={data.results} onSelect={setSelectedMovie} />
-          {data.total_pages > 1 && (
+       {data.total_pages > 1 && (
             <ReactPaginate
               pageCount={data.total_pages}
               pageRangeDisplayed={5}
@@ -67,6 +66,7 @@ useEffect(() => {
               previousLabel="←"
             />
           )}
+      <MovieGrid movies={data.results} onSelect={setSelectedMovie} />
       </>)}
       {selectedMovie && (
         <MovieModal movie={selectedMovie} onClose={() => setSelectedMovie(null)} />
